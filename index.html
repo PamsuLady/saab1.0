@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saab-Museo – Kruunupyy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+ 
+</head>
+<body>
+
+<!-- NAVIGAATIO -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-brand-nimi">Saab-Museo</div>
+    <div class="nav-brand-paikka">Saabinkuja 16 · Kruunupyy</div>
+  </div>
+
+  <ul class="nav-links-desktop">
+    <li><a href="#tietoja">Museo</a></li>
+    <li><a href="#galleria">Galleria</a></li>
+    <li><a href="#palvelut">Palvelut</a></li>
+    <li><a href="#vierailu">Vierailu</a></li>
+  </ul>
+
+  <a href="tel:0453502900" class="nav-lippu">045 350 2900</a>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Valikko">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBIILIVALIKKO -->
+<div class="nav-drawer" id="navDrawer">
+  <a href="#tietoja">Museo</a>
+  <a href="#galleria">Galleria</a>
+  <a href="#palvelut">Palvelut</a>
+  <a href="#vierailu">Vierailu</a>
+  <a href="#verkkokauppa">Verkkokauppa</a>
+
+  <a href="tel:0453502900" class="nav-puh">📞 045 350 2900</a>
+  <a href="mailto:saabmuseo@gmail.com" style="font-size:.85rem;color:var(--hopea);">saabmuseo@gmail.com</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img">
+    <img src="/img/saabinkuja.jpg" alt="Saabinkuja – Saab-museo Kruunupyy" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-sisalto">
+    <div class="hero-tagi">Saabinkuja 16 · Kruunupyy · Suomi</div>
+    <h1 class="hero-otsikko">Saab<span>–</span><br />Museo</h1>
+    <p class="hero-kuvaus">
+      Kokoelmat mitkä on nähtävä! Paljon uutta ja käytettyä osaa kaikkiin Saab-malleihin — suoraan Pohjanmaan sydämestä.
+    </p>
+    <div class="hero-napit">
+      <a href="#vierailu" class="btn-sininen">Suunnittele Vierailu</a>
+      <a href="#galleria" class="btn-reunus">Katso Galleria</a>
+    </div>
+  </div>
+</section>
+
+<!-- INFOPALKKI -->
+<div class="infopalkki">
+  <div class="info-kohta">
+    <div class="info-otsikko">Avoinna</div>
+    <div class="info-arvo">Ma–La 10–17</div>
+    <div class="info-lisatieto">Suljettu sunnuntaisin</div>
+  </div>
+  <div class="info-kohta">
+    <div class="info-otsikko">Kesäkausi 2025</div>
+    <div class="info-arvo">2.6.–5.7. ja 14.7.–30.8.</div>
+    <div class="info-lisatieto">Suljettu 7.7.–13.7.</div>
+  </div>
+  <div class="info-kohta">
+    <div class="info-otsikko">Sisäänpääsy</div>
+    <div class="info-arvo">10 € / henkilö</div>
+    <div class="info-lisatieto">Sis. kahvi, mehu ja pulla</div>
+  </div>
+  <div class="info-kohta">
+    <div class="info-otsikko">Puhelin</div>
+    <div class="info-arvo">045 350 2900</div>
+    <div class="info-lisatieto">saabmuseo@gmail.com</div>
+  </div>
+</div>
+
+<!-- TIETOJA MUSEOSTA -->
+<section class="tietoja" id="tietoja">
+  <div>
+    <div class="osio-tagi">Saab-Museo</div>
+    <h2 class="osio-otsikko">Kokoelmat<br />Mitkä On<br />Nähtävä</h2>
+    <p class="osio-teksti">
+      Kruunupyyssä, Pohjanmaalla sijaitseva Saab-museo on ainutlaatuinen kokoelma ruotsalaista automobiilihistoriaa suoraan suomalaisessa metsässä.
+    </p>
+    <p class="osio-teksti">
+      Saabinkujalla löydät satoja autoja, valtavan varaosakokoeleman sekä aidon intohimon Saab-merkkiä kohtaan.
+    </p>
+    <p class="osio-teksti"> 
+      Museo on yksi Suomen merkittävimmistä Saab-kokoelmista, ja siellä on nähtävillä muun muassa:
+      Kymmenittäin malleja: Mukana on malleja kuten Saab 93, 95, 96, 99, 900 ja 9000.
+  </p>
+  <p class="osio-teksti">
+      Kokoelmaan kuuluu kolme erittäin harvinaista, entisöimätöntä Saab 99 GLE "Finlandia" -mallia, joissa on jatkettu kori ja "saunaikkuna".
+  </p>
+  <p class="osio-teksti">
+    Omistaja Sami Plusisaari tunnetaan syvästä asiantuntemuksestaan ja kertoo mielellään autoihin liittyviä tarinoita vierailijoille.
+  </p>
+  </div>
+  <div>
+    <div class="ominaisuudet">
+      <div class="ominaisuus">
+        <div class="ominaisuus-ikoni">
+          <svg viewBox="0 0 16 16"><path d="M2 8a6 6 0 1112 0A6 6 0 012 8zm6-7a7 7 0 100 14A7 7 0 008 1zm.5 3.5h-1v4l3.5 2.1.5-.9L8.5 8.2V4.5z"/></svg>
+        </div>
+        <div class="ominaisuus-teksti"><strong>Paljon uutta ja käytettyä osaa</strong> kaikkiin Saab-malleihin.</div>
+      </div>
+      <div class="ominaisuus">
+        <div class="ominaisuus-ikoni">
+          <svg viewBox="0 0 16 16"><path d="M3 2h10v12H3V2zm1 1v10h8V3H4zm1 2h6v1H5V5zm0 2h4v1H5V7z"/></svg>
+        </div>
+        <div class="ominaisuus-teksti"><strong>Autojen säilytystä</strong> lämpimässä, kylmässä sekä pihalla — kohde on vartioitu.</div>
+      </div>
+      <div class="ominaisuus">
+        <div class="ominaisuus-ikoni">
+          <svg viewBox="0 0 16 16"><path d="M8 1L2 14h12L8 1zm0 3l3.5 7h-7L8 4z"/></svg>
+        </div>
+        <div class="ominaisuus-teksti"><strong>Ostetaan museo- ja varaosa-autoja,</strong> kaikki merkit — noudetaan isotkin määrät.</div>
+      </div>
+      <div class="ominaisuus">
+        <div class="ominaisuus-ikoni">
+          <svg viewBox="0 0 16 16"><path d="M8 2a4 4 0 100 8A4 4 0 008 2zM5 9.5A5.5 5.5 0 002.5 15h11A5.5 5.5 0 0011 9.5a5 5 0 01-6 0z"/></svg>
+        </div>
+        <div class="ominaisuus-teksti"><strong>Lapsille oma leikkipaikka.</strong> Kahvi, mehu ja pulla sisältyvät hintaan.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIA -->
+<section class="galleria" id="galleria">
+  <div class="osio-tagi">Galleria</div>
+  <h2 class="osio-otsikko">Museolta Kuvattuna</h2>
+  <div class="galleria-grid">
+    <div class="galleria-kuva">
+      <img src="img/saabinkuja.jpg" alt="Saabinkuja ulkoa" />
+      <div class="galleria-kuva-teksti">Saabinkuja – ulkoalueen kokoelma</div>
+    </div>
+    <div class="galleria-kuva">
+      <img src="img/kuja.jpg" alt="Saab-autoja rivissä ulkona" />
+      <div class="galleria-kuva-teksti">Ulkoalue – vuosikymmenien kokoelma</div>
+    </div>
+    <div class="galleria-kuva">
+      <img src="img/talli.jpg" alt="Saab-autoja hallissa" />
+      <div class="galleria-kuva-teksti">Sisähalli – lämmitetty näyttely</div>
+    </div>
+    <div class="galleria-kuva galleria-extra">
+      <img src="img/hylly.jpg" alt="Saab-varaosia hyllyssä" />
+      <div class="galleria-kuva-teksti">Varaosavarasto – tuhansia osia</div>
+    </div>
+  </div>
+</section>
+
+<!-- PALVELUT -->
+<section class="palvelut" id="palvelut">
+  <div class="osio-tagi">Palvelut</div>
+  <h2 class="osio-otsikko">Mitä Tarjoamme</h2>
+  <div class="palvelut-grid">
+    <div class="palvelu-kortti">
+      <div class="palvelu-nro">01</div>
+      <div class="palvelu-nimi">Varaosat</div>
+      <div class="palvelu-kuvaus">Laaja valikoima uusia ja käytettyjä osia kaikkiin Saab-malleihin. Löydät mitä tarvitset.</div>
+    </div>
+    <div class="palvelu-kortti">
+      <div class="palvelu-nro">02</div>
+      <div class="palvelu-nimi">Säilytys</div>
+      <div class="palvelu-kuvaus">Auton säilytys lämpimässä hallissa, kylmässä tai pihalla. Kohde on vartioitu ympäri vuorokauden.</div>
+    </div>
+    <div class="palvelu-kortti">
+      <div class="palvelu-nro">03</div>
+      <div class="palvelu-nimi">Ostetaan Autoja</div>
+      <div class="palvelu-kuvaus">Ostamme museo- ja varaosa-autoja. Kaikki merkit, kaikki mallit — isotkin määrät noudetaan.</div>
+    </div>
+    <div class="palvelu-kortti">
+      <div class="palvelu-nro">04</div>
+      <div class="palvelu-nimi">Museovierailu</div>
+      <div class="palvelu-kuvaus">Sisäänpääsy 10 € sisältäen kahvin, mehun ja pullan. Lapsille oma leikkipaikka.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VIERAILU -->
+<section class="vierailu" id="vierailu">
+  <div class="osio-tagi">Vierailu</div>
+  <h2 class="osio-otsikko">Tule Käymään</h2>
+  <div class="vierailu-kortit">
+    <div class="vierailu-kortti">
+      <div class="vk-otsikko">Osoite</div>
+      <div class="vk-arvo">Saabinkuja 16<br />68500 Kruunupyy<br />Suomi</div>
+    </div>
+    <div class="vierailu-kortti">
+      <div class="vk-otsikko">Aukioloajat</div>
+      <div class="vk-arvo">
+        Ma–La 10:00–17:00<br />
+        <span class="vk-korostus">Suljettu sunnuntaisin</span><br /><br />
+        Kesä 2025:<br />
+        2.6.–5.7. &amp; 14.7.–30.8.<br />
+        <span class="vk-korostus">Suljettu 7.7.–13.7.</span>
+      </div>
+    </div>
+    <div class="vierailu-kortti">
+      <div class="vk-otsikko">Hinnat</div>
+      <div class="vk-arvo">
+        Sisäänpääsy <span class="vk-korostus">10 €</span><br />
+        Sisältää kahvin,<br />mehun ja pullan<br /><br />
+        Lapsille oma<br />leikkipaikka 🎠
+      </div>
+    </div>
+    <div class="vierailu-kortti">
+      <div class="vk-otsikko">Yhteystiedot</div>
+      <div class="vk-arvo">
+        <a href="tel:0453502900" style="color:var(--sininen2);text-decoration:none;font-size:1.05rem;font-family:'Oswald',sans-serif;font-weight:600;">045 350 2900</a><br /><br />
+        <a href="mailto:saabmuseo@gmail.com" style="color:var(--sininen2);text-decoration:none;font-size:.85rem;word-break:break-all;">saabmuseo@gmail.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="kartta-kehys">
+    <div class="kartta-sisalto">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      </svg>
+      <div class="kartta-teksti">Saabinkuja 16, Kruunupyy</div>
+      <div class="kartta-alaotsikko">68500 Kruunupyy · Pohjanmaa · Suomi</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banneri">
+  <h2 class="cta-otsikko">Kokoelmat Mitkä<br />On Nähtävä!</h2>
+  <p class="cta-teksti">Ota yhteyttä tai tule suoraan paikalle. Löydät meidät Saabinkujalta Kruunupyystä.</p>
+  <a href="tel:0453502900" class="btn-valko">Soita: 045 350 2900</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-ylaosa">
+    <div>
+      <div class="footer-logo">Saab<span>–</span>Museo</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--hopea);margin-top:.4rem;letter-spacing:.1em;">
+        SAABINKUJA 16 · 68500 KRUUNUPYY
+      </div>
+    </div>
+    <div class="footer-yhteystiedot">
+      <a href="tel:0453502900">045 350 2900</a>
+      <a href="mailto:saabmuseo@gmail.com">saabmuseo@gmail.com</a>
+    </div>
+  </div>
+  <div class="footer-alaosa">
+    <div class="footer-copy">© 2025 Saab-Museo · Kruunupyy · Kaikki oikeudet pidätetään</div>
+    <div class="footer-copy">Saabinkuja 16 · 68500 Kruunupyy</div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const toggle = document.getElementById('navToggle');
+  const drawer = document.getElementById('navDrawer');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    drawer.classList.toggle('open');
+  });
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      drawer.classList.remove('open');
+    });
+  });
+
+  // Piilota ylimääräinen galleriakuva mobiilissa
+  function paivitaGalleria() {
+    document.querySelectorAll('.galleria-extra').forEach(el => {
+      el.style.display = window.innerWidth >= 640 ? 'block' : 'none';
+    });
+  }
+  paivitaGalleria();
+  window.addEventListener('resize', paivitaGalleria);
+</script>
+</body>
+</html>

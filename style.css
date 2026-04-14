@@ -1,0 +1,526 @@
+
+    :root {
+      --musta: #0e0e0e;
+      --tumma: #161616;
+      --harmaa: #2a2a2a;
+      --hopea: #9a9a9a;
+      --vaalea: #eeeeee;
+      --valko: #f8f8f6;
+      --sininen: #1a3a6b;
+      --sininen2: #2a5298;
+      --kulta: #d4a017;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--musta);
+      color: var(--vaalea);
+      font-family: 'Source Serif 4', serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(14,14,14,.96);
+      border-bottom: 2px solid var(--sininen);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .9rem 1.2rem;
+      gap: .8rem;
+    }
+
+    .nav-brand { display: flex; flex-direction: column; line-height: 1.1; }
+
+    .nav-brand-nimi {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--valko);
+    }
+
+    .nav-brand-paikka {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .58rem; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--sininen2);
+    }
+
+    .nav-toggle {
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: .3rem;
+      background: none; border: none;
+    }
+
+    .nav-toggle span {
+      display: block; width: 24px; height: 2px;
+      background: var(--vaalea);
+      transition: transform .3s, opacity .3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-drawer {
+      position: fixed;
+      top: 56px; left: 0; right: 0;
+      background: rgba(14,14,14,.98);
+      border-bottom: 1px solid var(--harmaa);
+      display: flex; flex-direction: column;
+      padding: 1.5rem 1.2rem; gap: 1.2rem;
+      transform: translateY(-110%);
+      transition: transform .35s cubic-bezier(.4,0,.2,1);
+      z-index: 190;
+    }
+
+    .nav-drawer.open { transform: translateY(0); }
+
+    .nav-drawer a {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem; font-weight: 400;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--vaalea); text-decoration: none;
+      border-bottom: 1px solid var(--harmaa);
+      padding-bottom: 1rem;
+      transition: color .2s;
+    }
+
+    .nav-drawer a:last-child { border-bottom: none; padding-bottom: 0; }
+    .nav-drawer a:hover { color: var(--kulta); }
+    .nav-puh { color: var(--sininen2) !important; font-size: .9rem !important; }
+
+    .nav-links-desktop {
+      display: none; list-style: none;
+      gap: 2rem; align-items: center;
+    }
+
+    .nav-links-desktop a {
+      font-family: 'Oswald', sans-serif;
+      font-size: .8rem; font-weight: 400;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--hopea); text-decoration: none;
+      transition: color .2s;
+    }
+
+    .nav-links-desktop a:hover { color: var(--valko); }
+
+    .nav-lippu {
+      display: none;
+      font-family: 'Oswald', sans-serif;
+      font-size: .75rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--valko); background: var(--sininen2);
+      padding: .55rem 1.3rem; text-decoration: none;
+      transition: background .2s;
+    }
+
+    .nav-lippu:hover { background: var(--sininen); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100svh; min-height: 520px;
+      overflow: hidden;
+    }
+
+    .hero-img { position: absolute; inset: 0; }
+    .hero-img img { object-position: center center; }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top,
+        rgba(14,14,14,.95) 0%,
+        rgba(14,14,14,.5) 45%,
+        rgba(14,14,14,.2) 100%);
+    }
+
+    .hero-sisalto {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.2rem 2.5rem;
+    }
+
+    .hero-tagi {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--kulta);
+      margin-bottom: .9rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+
+    .hero-tagi::before {
+      content: ''; display: inline-block;
+      width: 20px; height: 1px; background: var(--kulta);
+    }
+
+    .hero-otsikko {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 13vw, 6rem);
+      font-weight: 700; line-height: .95;
+      letter-spacing: .02em; text-transform: uppercase;
+      color: var(--valko); margin-bottom: 1rem;
+    }
+
+    .hero-otsikko span { color: var(--sininen2); }
+
+    .hero-kuvaus {
+      font-size: .95rem; line-height: 1.7;
+      color: rgba(238,238,238,.75);
+      margin-bottom: 1.5rem; max-width: 480px;
+    }
+
+    .hero-napit { display: flex; flex-wrap: wrap; gap: .8rem; }
+
+    .btn-sininen {
+      background: var(--sininen2); color: var(--valko);
+      font-family: 'Oswald', sans-serif;
+      font-size: .8rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .85rem 1.8rem; text-decoration: none;
+      border: none; cursor: pointer; display: inline-block;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn-sininen:hover { background: var(--sininen); transform: translateY(-2px); }
+
+    .btn-reunus {
+      background: transparent; color: var(--valko);
+      font-family: 'Oswald', sans-serif;
+      font-size: .8rem; font-weight: 400;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .85rem 1.8rem; text-decoration: none;
+      border: 1px solid rgba(238,238,238,.4); display: inline-block;
+      transition: border-color .2s;
+    }
+
+    .btn-reunus:hover { border-color: var(--valko); }
+
+    /* ── INFOPALKKI ── */
+    .infopalkki {
+      background: var(--sininen);
+      padding: 1.5rem 1.2rem;
+      display: grid; grid-template-columns: 1fr; gap: 1rem;
+    }
+
+    .info-kohta { display: flex; flex-direction: column; gap: .25rem; }
+
+    .info-otsikko {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .58rem; letter-spacing: .18em;
+      text-transform: uppercase; color: rgba(255,255,255,.6);
+    }
+
+    .info-arvo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem; font-weight: 600;
+      color: var(--valko); letter-spacing: .04em;
+    }
+
+    .info-lisatieto { font-size: .82rem; color: rgba(255,255,255,.7); line-height: 1.5; }
+
+    /* ── TIETOJA ── */
+    .tietoja { padding: 3.5rem 1.2rem; background: var(--tumma); }
+
+    .osio-tagi {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .6rem; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--kulta);
+      margin-bottom: .8rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+
+    .osio-tagi::before {
+      content: ''; display: inline-block;
+      width: 18px; height: 1px; background: var(--kulta);
+    }
+
+    .osio-otsikko {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 7vw, 2.8rem);
+      font-weight: 700; text-transform: uppercase;
+      color: var(--valko); line-height: 1.05;
+      margin-bottom: 1.2rem; letter-spacing: .02em;
+    }
+
+    .osio-teksti {
+      font-size: .95rem; line-height: 1.8;
+      color: var(--hopea); margin-bottom: 1rem;
+    }
+
+    .ominaisuudet {
+      margin-top: 1.5rem;
+      display: flex; flex-direction: column; gap: .9rem;
+    }
+
+    .ominaisuus { display: flex; gap: .8rem; align-items: flex-start; }
+
+    .ominaisuus-ikoni {
+      flex-shrink: 0; width: 22px; height: 22px;
+      background: var(--sininen2);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: .15rem;
+    }
+
+    .ominaisuus-ikoni svg { width: 12px; height: 12px; fill: var(--valko); }
+
+    .ominaisuus-teksti {
+      font-size: .92rem; color: var(--vaalea); line-height: 1.6;
+    }
+
+    .ominaisuus-teksti strong { color: var(--valko); font-weight: 400; font-style: italic; }
+
+    /* ── GALLERIA ── */
+    .galleria { padding: 3.5rem 1.2rem; background: var(--musta); }
+
+    .galleria-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 3px; margin-top: 2rem;
+    }
+
+    .galleria-kuva {
+      position: relative; overflow: hidden;
+      aspect-ratio: 4/3; cursor: pointer;
+    }
+
+    .galleria-kuva img { transition: transform .5s cubic-bezier(.4,0,.2,1); }
+    .galleria-kuva:hover img { transform: scale(1.04); }
+
+    .galleria-kuva-teksti {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.2rem 1rem .9rem;
+      background: linear-gradient(to top, rgba(14,14,14,.85) 0%, transparent 100%);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(238,238,238,.8);
+    }
+
+    /* ── PALVELUT ── */
+    .palvelut { padding: 3.5rem 1.2rem; background: var(--tumma); }
+
+    .palvelut-grid {
+      display: grid; grid-template-columns: 1fr;
+      gap: 1px; background: var(--harmaa); margin-top: 2rem;
+    }
+
+    .palvelu-kortti {
+      background: var(--tumma); padding: 2rem 1.5rem;
+      border-left: 3px solid transparent;
+      transition: border-color .25s, background .25s;
+    }
+
+    .palvelu-kortti:hover { border-color: var(--sininen2); background: #1a1a1a; }
+
+    .palvelu-nro {
+      font-family: 'Oswald', sans-serif; font-size: 2.5rem;
+      font-weight: 700; color: var(--sininen2);
+      opacity: .35; line-height: 1; margin-bottom: .5rem;
+    }
+
+    .palvelu-nimi {
+      font-family: 'Oswald', sans-serif; font-size: 1.1rem;
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: .06em; color: var(--valko); margin-bottom: .6rem;
+    }
+
+    .palvelu-kuvaus { font-size: .9rem; color: var(--hopea); line-height: 1.7; }
+
+    /* ── VIERAILU ── */
+    .vierailu { padding: 3.5rem 1.2rem; background: var(--musta); }
+
+    .vierailu-kortit {
+      display: grid; grid-template-columns: 1fr;
+      gap: 1.5rem; margin-top: 2rem;
+    }
+
+    .vierailu-kortti {
+      background: var(--tumma); padding: 1.8rem;
+      border-top: 2px solid var(--sininen2);
+    }
+
+    .vk-otsikko {
+      font-family: 'Oswald', sans-serif; font-size: .75rem;
+      font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--sininen2); margin-bottom: 1rem;
+    }
+
+    .vk-arvo { font-size: .95rem; color: var(--vaalea); line-height: 1.85; }
+    .vk-korostus { color: var(--kulta); font-style: italic; }
+
+    .kartta-kehys {
+      margin-top: 2.5rem; background: var(--harmaa);
+      height: 220px; display: flex;
+      align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+
+    .kartta-kehys::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    .kartta-sisalto { position: relative; text-align: center; z-index: 1; }
+
+    .kartta-sisalto svg {
+      width: 36px; height: 36px; fill: var(--sininen2);
+      margin-bottom: .8rem; margin-left: auto; margin-right: auto;
+      display: block;
+      filter: drop-shadow(0 0 12px rgba(42,82,152,.6));
+    }
+
+    .kartta-teksti {
+      font-family: 'Oswald', sans-serif; font-size: 1rem;
+      font-weight: 600; color: var(--valko); letter-spacing: .04em; text-transform: uppercase;
+    }
+
+    .kartta-alaotsikko {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem; letter-spacing: .12em; color: var(--hopea); margin-top: .3rem;
+    }
+
+    /* ── CTA ── */
+    .cta-banneri {
+      background: var(--sininen);
+      padding: 3rem 1.2rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .cta-banneri::before {
+      content: 'SAAB';
+      position: absolute;
+      font-family: 'Oswald', sans-serif;
+      font-size: 10rem; font-weight: 700;
+      color: rgba(255,255,255,.04);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      letter-spacing: .1em; pointer-events: none; white-space: nowrap;
+    }
+
+    .cta-otsikko {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 7vw, 2.8rem);
+      font-weight: 700; text-transform: uppercase;
+      color: var(--valko); line-height: 1.05;
+      margin-bottom: .8rem; position: relative;
+    }
+
+    .cta-teksti {
+      font-size: .95rem; color: rgba(255,255,255,.75);
+      line-height: 1.7; margin-bottom: 1.5rem;
+      max-width: 420px; margin-left: auto; margin-right: auto;
+      position: relative;
+    }
+
+    .btn-valko {
+      background: var(--valko); color: var(--sininen);
+      font-family: 'Oswald', sans-serif;
+      font-size: .85rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 1rem 2.4rem; text-decoration: none;
+      display: inline-block; position: relative;
+      transition: opacity .2s, transform .15s;
+    }
+
+    .btn-valko:hover { opacity: .9; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080808; padding: 2.5rem 1.2rem 2rem;
+      border-top: 2px solid var(--sininen);
+    }
+
+    .footer-ylaosa {
+      display: flex; flex-direction: column;
+      gap: 1.5rem; margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+      font-family: 'Oswald', sans-serif; font-size: 1.3rem;
+      font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--valko);
+    }
+
+    .footer-logo span { color: var(--sininen2); }
+
+    .footer-yhteystiedot { display: flex; flex-direction: column; gap: .5rem; }
+
+    .footer-yhteystiedot a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .78rem; color: var(--hopea);
+      text-decoration: none; letter-spacing: .06em;
+      transition: color .2s;
+    }
+
+    .footer-yhteystiedot a:hover { color: var(--valko); }
+
+    .footer-alaosa {
+      border-top: 1px solid var(--harmaa); padding-top: 1.5rem;
+      display: flex; flex-direction: column; gap: .5rem;
+    }
+
+    .footer-copy {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .6rem; letter-spacing: .1em; color: #555; text-transform: uppercase;
+    }
+
+    /* ── TABLETTI ≥640px ── */
+    @media (min-width: 640px) {
+      nav { padding: 1rem 2rem; }
+
+      .infopalkki { grid-template-columns: repeat(2, 1fr); padding: 1.5rem 2rem; }
+
+      .tietoja, .galleria, .palvelut, .vierailu, .cta-banneri { padding: 5rem 2rem; }
+
+      .galleria-grid { grid-template-columns: repeat(2, 1fr); }
+      .galleria-grid .galleria-kuva:first-child { grid-column: span 2; aspect-ratio: 16/7; }
+
+      .palvelut-grid { grid-template-columns: repeat(2, 1fr); }
+      .vierailu-kortit { grid-template-columns: repeat(2, 1fr); }
+      .kartta-kehys { height: 280px; }
+
+      .footer-ylaosa { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+      .footer-alaosa { flex-direction: row; justify-content: space-between; }
+    }
+
+    /* ── DESKTOP ≥1024px ── */
+    @media (min-width: 1024px) {
+      nav { padding: 1rem 3rem; }
+      .nav-toggle { display: none; }
+      .nav-links-desktop { display: flex; }
+      .nav-lippu { display: inline-block; }
+
+      .hero-sisalto { padding: 3rem 3rem 4rem; max-width: 700px; }
+
+      .infopalkki { grid-template-columns: repeat(4, 1fr); padding: 1.5rem 3rem; }
+
+      .tietoja {
+        padding: 7rem 3rem;
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 5rem; align-items: start;
+      }
+
+      .galleria { padding: 7rem 3rem; }
+      .galleria-grid { grid-template-columns: repeat(3, 1fr); }
+      .galleria-grid .galleria-kuva:first-child { grid-column: span 2; aspect-ratio: 16/9; }
+
+      .palvelut { padding: 7rem 3rem; }
+      .palvelut-grid { grid-template-columns: repeat(4, 1fr); }
+
+      .vierailu { padding: 7rem 3rem; }
+      .vierailu-kortit { grid-template-columns: repeat(4, 1fr); }
+      .kartta-kehys { height: 320px; }
+
+      .cta-banneri { padding: 6rem 3rem; }
+      footer { padding: 3rem 3rem 2rem; }
+    }
+  
